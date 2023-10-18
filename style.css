@@ -1,0 +1,65 @@
+#zdjęcie{
+    width: 100%;
+    aspect-ratio: auto;
+}
+#wiek{
+    width: 120px;
+}
+body{
+    height: 100%;
+    padding: 0 5%;
+    margin: 0;
+    background-image: url("dune.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+footer{
+    background-color: #010080;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+nav{
+    background-color: #6599E4;
+    height: 100%;
+    float: left;
+    width: 30%;
+    margin: 0;
+}
+nav ul {
+    margin: 0;
+}
+nav a{
+    color: white;
+    text-decoration: none;
+    width: fit-content;
+}
+nav ul:first-child{
+    padding-inline-start: 0;
+}
+nav li{
+    width: 100%;
+    display: block;
+    background-color: #6599E4;
+}
+nav li:hover{
+    opacity: 80%;
+}
+#rightPanel{
+    box-sizing: border-box;
+    width: 70%;
+    float: right;
+    background-color: #78AAEF;
+    padding: 10px;
+}
+#clearFloat{
+    height: 100%;
+}
+#clearFloat::after{
+    clear: both;
+    display: table;
+    content: "";
+}
+h1, h2{
+    color: #263396;
+}
