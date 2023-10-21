@@ -42,12 +42,14 @@ h1{
 }
 #links > ul > ul > li {
     background-color: #4377DD;
-    padding-inline-start: 40px;
 }
 #links a{
+    box-sizing: border-box;
+    display: inline-block;
     color: white;
     text-decoration: none;
-    width: fit-content;
+    width: 100%;
+    padding: 5px;
 }
 #links ul{
     padding-inline-start: 0;
@@ -55,13 +57,17 @@ h1{
 }
 #links > ul > li{
     font-weight: bold;
+}
+#links > ul > li > a{
     padding-inline-start: 10px;
+}
+#links > ul > ul > li > a{
+    padding-inline-start: 40px;
 }
 #links li{
     display: block;
     background-color: #6599E4;
     opacity: 100%;
-    padding: 5px;
     font-size: 20px;
 }
 #links li:hover{
