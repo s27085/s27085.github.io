@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>Konrad Fijałkowski s27085</title>
@@ -10,20 +10,24 @@
     <div id="grid-container">
         <div id="links">
             <ul>
-                <li><a href="#">link</a></li>
-                    <ul>
-                        <li><a href="#">link 2</a></li>
-                        <li><a href="#">link 2</a></li>
-                        <li><a href="#">link 2</a></li>
-                    </ul>
-                <li><a href="#">link 2</a></li>
-                <li><a href="#">link 3</a></li>
+                <div id="dropdown">
+                    <li id="drop-button"><a class="first-layer" href="#">link</a>
+                        <ul id="dropdown-content">
+                            <li><a href="#">link 2</a></li>
+                            <li><a href="#">link 2</a></li>
+                            <li><a href="#">link 2</a></li>
+                        </ul>
+                    </li>
+                </div>
+                <li><a class="first-layer" href="#">link 2</a></li>
+                <li><a class="first-layer" href="#">link 3</a></li>
             </ul>
         </div>
+
         <div id="siteContent">
             <div id="leftPanel">
                 <h1>title 1</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim exercitationem quo sed sint vero voluptatum. Dolore pariatur reprehenderit rerum vel.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aut dolore, iure quae reprehenderit tempora. Accusantium assumenda distinctio dolor dolorum explicabo illo illum inventore itaque neque nihil perferendis qui quos, reiciendis suscipit ullam unde veritatis? Aperiam delectus enim esse fuga natus obcaecati repellat temporibus! Consectetur consequatur eligendi fugit impedit omnis.</p>
                 <img id="zdjęcie" src="images/kotek.jpg" alt="cotek">
 
                 <h2>subtitle</h2>
@@ -53,7 +57,7 @@
                         </select><br>
                         <div>
                             <label for="opcja1">Opcja</label><br>
-                            <input type="radio" id="opcja1"> a<br>
+                            <input checked type="radio" id="opcja1"> a<br>
                             <input type="radio" id="opcja2"> b<br>
                             <input type="radio" id="opcja3"> c<br>
                         </div>
@@ -76,9 +80,9 @@
             </div>
         </div>
         <div id="footer">
-        <p>sample text 1</p>
-        <p>sample text 2</p>
-        <p>sample text 3</p>
+            <p>sample text 1</p>
+            <p>sample text 2</p>
+            <p>sample text 3</p>
         </div>
     </div>
 </body>
