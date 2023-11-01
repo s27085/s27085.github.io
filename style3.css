@@ -53,8 +53,7 @@ body{
 }
 #zdjęcie{
     width: 100%;
-    max-height: 30vh;
-    aspect-ratio: auto;
+    aspect-ratio: 16 / 9;
 }
 #footer{
     grid-column: 1 / span 2;
