@@ -2,15 +2,16 @@ body{
     padding: 0;
     margin: 0;
     background-color: grey;
+    height: 100vh;
 }
+
 #grid-container {
     box-sizing: content-box;
     background-color: grey;
-    height: 100vh;
+    height: 100%;
     display: grid;
-    grid-template-columns: 1fr;
     gap: 10px 0;
-    grid-template-rows: 5fr 90fr 5fr;
+    grid-template-rows: 1fr 50fr 1fr;
 }
 #links{
     grid-column: 1 / span 2;
@@ -36,12 +37,13 @@ body{
 @media (min-width: 700px){
     #siteContent {
         grid-template-columns: 1fr 1fr;
+        overflow-y: scroll;
     }
 }
 @media (max-width: 700px){
     #siteContent {
-        grid-template-rows: 1fr 1fr;
-        gap: 30px 0px;
+        grid-template-rows: 1fr;
+        gap: 30px 0;
     }
 }
 #siteContent > div {
@@ -52,7 +54,8 @@ body{
     background-color: white;
 }
 #zdjęcie{
-    width: 100%;
+    max-width: 100%;
+    max-height: 30%;
     aspect-ratio: 16 / 9;
 }
 #footer{
@@ -106,13 +109,17 @@ textarea{
     background-color: white;
     min-width: 150px;
     padding: 12px 16px;
-    border-bottom: 1px solid black;}
+    border-bottom: 1px solid black;
+}
 #dropdown-content a{
     text-decoration: none;
 }
 #wiek, #imie{
     min-width: 75%;
 }
-.first-layer {
+.first-layer{
     text-decoration: none;
+}
+#pole{
+    max-width: 200px;
 }

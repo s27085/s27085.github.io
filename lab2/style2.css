@@ -1,7 +1,7 @@
 body{
     padding: 0;
     margin: 0;
-    background-image: url("images/dune.jpeg");
+    background-image: url("../images/dune.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -39,37 +39,37 @@ h1{
 #links{
     background-color:rgba(101,153,228, 0.5);
 }
-#links > ul > ul > li {
-    background-color: #4377DD;
-}
 #links a{
     box-sizing: border-box;
     display: inline-block;
     color: white;
     text-decoration: none;
-    width: 100%;
-    padding: 5px;
 }
 #links ul{
     padding-inline-start: 0;
     margin: 0;
 }
-#links > ul > li{
+.first-layer{
+    background-color: #6599E4;
     font-weight: bold;
 }
-#links > ul > li > a{
-    padding-inline-start: 10px;
+.second-layer{
+    background-color: #4377DD;
 }
-#links > ul > ul > li > a{
-    padding-inline-start: 40px;
+.first-layer, .second-layer{
+    width: 100%;
+    padding: 5px;
+}
+.second-layer{
+    padding-left: 20px;
 }
 #links li{
-    display: block;
-    background-color: #6599E4;
+    display: inline-block;
     opacity: 100%;
     font-size: 20px;
+    width: 100%;
 }
-#links li:hover{
+#links a:hover{
     opacity: 80%;
 }
 form{
