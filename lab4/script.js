@@ -1,26 +1,24 @@
 function zad1() {
     console.log("zadanie 1");
 
-    let a = 4;
-    let b = 3;
+    let a = 3;
+    let b = 4;
     let c = 5;
 
-    if (Math.pow(a, 2) + Math.pow(b, 2) === Math.pow(c, 2)) {
+    if ((a*a + b*b === c*c) ||
+        (c*c + b*b === a*a) ||
+        (a*a + c*c === b*b)
+    ) {
         console.log("jest to trójka pitagorejska");
     } else {
         console.log("nie jest to trójka pitagorejska");
-
     }
 }
-function zad2() {
+function zad2(a, b, c) {
     console.log("zadanie 2");
 
-    let a = 21;
-    let b = 4;
-    let c = 3;
-
     do{
-        if(b % 3 === 0){
+        if(b % c === 0){
             console.log(b)
         }
         b++;
@@ -149,7 +147,7 @@ function zad10(pattern, sentence){
     console.log(words.join(" "));
 }
 zad1();
-zad2();
+zad2(21, 4, 3);
 zad3(4);
 zad4(4);
 zad5(3);
