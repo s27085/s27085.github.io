@@ -1,8 +1,18 @@
+// 11. Dany jest Obiekt:
+//     auto{rok, przebieg, cena_wyjsciowa, cena_koncowa}.
 let Car = {
     annal: 2010,
     mileage: 200000,
     initial_price: 10000,
-    final_price:60000,
+    final_price: 60000,
+    // 11.1 Napisz następujące metody w obiekcie:
+    //      a) Metoda, która powiększa cenę wyjściową o 1000.
+    //      b) Metoda, która obniża cenę końcową o 1000 za każdy rok wieku
+    //      auta (względem ceny wyjściowej).
+    //      c) Metoda, która obniża cenę końcową o 10000 za każde
+    //      100000km przebiegu auta.
+    //      d) Metoda, która dopisuje do auta podany przebieg i rok
+    //      (automatycznie przeliczając cenę wg powyższych funkcji).
     getAnnal(){
         return this.annal;
     },
@@ -28,7 +38,11 @@ let Car = {
         this.subtractPriceByMileage();
     }
 }
-let cars1 = {
+    // 11.2   Stwórz tablicę obiektów typu auto oraz funkcje do niej:
+    // e) Funkcja, która dopisze auto do tablicy samochodow, jesli jego
+    // cena jest wieksza niz 10000.
+    // f) Funkcja, ktora dla wszystkich aut z tablicy zwieksza rok o 1.
+let cars = {
     cars: [],
     addCar(car){
         if(this.isPriceHigherThanTenThousand(car.getFinalPrice())){
@@ -47,6 +61,6 @@ let cars1 = {
 }
 Car.changeAnnalAndMileage(2020, 200000);
 console.log(Car.getFinalPrice());
-cars1.addCar(Car);
-cars1.changeCarsAnnalByOneYear();
+cars.addCar(Car);
+cars.changeCarsAnnalByOneYear();
 console.log(Car.getAnnal());
