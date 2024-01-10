@@ -1,1 +1,4 @@
 /.idea
+
+/projekt/node_module/
+/projekt/.parcel-cache

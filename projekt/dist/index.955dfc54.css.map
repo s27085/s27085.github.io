@@ -1,0 +1,1 @@
+{"mappings":"","sources":["source/css/_variables.scss"],"sourcesContent":["//use $indigo-500 variable from sass for body background color\r\n$indigo:  #6610f2;\r\n$primary: $indigo;"],"names":[],"version":3,"file":"index.955dfc54.css.map","sourceRoot":"/__parcel_source_root/"}
