@@ -3,7 +3,15 @@ import {Database, Flashcard} from './firebase.js';
 const flashcardsDatabase = new Database();
 async function loadUsers() {
     try {
-        for (const [key, value] of Object.entries(await flashcardsDatabase.getEntries("users"))) {
+        let data = await flashcardsDatabase.getEntries("users");
+        if(data === null || data === undefined) {
+            console.log("No users");
+            return;
+        }
+        let array = Object.entries(data).map(([key, value]) => {
+            return [key, value];
+        });
+        for (const [key, value] of array) {
             $("#selectUser").append("<option value='" + key + "'>" + key + "</option>");
         }
     }
@@ -13,29 +21,44 @@ async function loadUsers() {
 }
 async function loadFlashcards() {
     try {
-        await flashcardsDatabase.attachListener("users/" + $("#selectUser").val() + "/flashcards", updateFlashcards);
+        const user = $("#selectUser").val();
+        if (user === null) {
+            return;
+        }
+        await flashcardsDatabase.attachListener("users/" + user + "/flashcards", updateFlashcards);
     } catch (e) {
         console.log(e);
     }
 }
 function updateFlashcards(flashcards) {
-    $("#flashcards").empty();
+    let fl = $("#flashcards");
+    fl.empty();
+    if (flashcards.length === 0) {
+        //show info that there are no flashcards
+        fl.append("<tr><td colspan='3' class='text-center'>Brak fiszek</td></tr>");
+    }
     for (const [key, value] of Object.entries(flashcards)) {
         $("#flashcards").append(
-            "<tr class='flashcard'>" +
-                "<td>" + value.ask + "</td>" +
-                "<td>" + value.answer + "</td>" +
-                "<td>" + "<button class='btn remove-btn btn-danger' value='" + key + "'>Remove</button>" + "</td>" +
+            "<tr class='flashcard border border-2 border-text' data-key="+ value.key + ">" +
+                "<td class='col-5 px-3'>" + value.ask + "</td>" +
+                "<td class='col-5 px-3'>" + value.answer + "</td>" +
+                "<td class='col-2 p-0'>" + "<button class='btn remove-btn btn-danger w-100 bg-text border border-0 rounded-0 text-background font-weight-bold' value='" + key + "'>Usuń</button>" + "</td>" +
             "</tr>"
         );
     }
 }
-// $(".remove-btn").click((e) => {
-//     flashcardsDatabase.removeCard($("#selectUser").val(), e.target.value);
-// }
+$(document).on("click", ".remove-btn", function(e) {
+    let key = $(e.target).parent().parent().data("key");
+    flashcardsDatabase.removeCard($("#selectUser").val(), key);
+});
 $("#add_flashcard").submit ((e) => {
     try {
-        let flashcardToSend = new Flashcard($("#question").val(), $("#answer").val(), $("#selectUser").val(), $("#selectSet").val());
+        let answer = $("#answer").val();
+        let question = $("#question").val();
+        if (answer === "" || question === "") {
+            return false;
+        }
+        let flashcardToSend = new Flashcard(question, answer, $("#selectUser").val());
         flashcardsDatabase.addCards($("#selectUser").val(), flashcardToSend);
     }
     catch (e) {
@@ -43,9 +66,30 @@ $("#add_flashcard").submit ((e) => {
     }
     return false;
 });
-$(document).ready(() => {
+$("#selectUser").change(() => {
+    loadFlashcards();
+});
+$(document).ready(function () {
+    // flashcardsDatabase.addUser('user1');
+    // flashcardsDatabase.addUser('user2');
     loadUsers().then(() => {
-        $(".main-content").toggle();
+        $(".main-content").toggleClass("d-none");
         loadFlashcards();
     })
+    $("button").on({
+        mouseenter: function() {
+            $(this).toggleClass("text-text text-background");
+            $(this).toggleClass("bg-text bg-background");
+        },
+        mouseleave: function() {
+            $(this).toggleClass("text-background text-text");
+            $(this).toggleClass("bg-text bg-background");
+
+        }
+    });
+    $("#changeSiteBtn").on("click", function() {
+        var usernameValue = $("#selectUser").val();
+        console.log("Button clicked");
+        window.location.href = "./karty.html?u=" + usernameValue;
+    });
 });

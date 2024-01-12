@@ -25,14 +25,13 @@ export class Flashcard {
         this.ask = ask;
         this.answer = answer;
         this.owner = owner;
-        this.set = set;
+        // this.set = set;
     }
 }
 export class Database {
     //map containing references in form of strings
     references = new Map([[1, "flashcards/"], [2, "users/"]]);
     async addCards(userID, card) {
-        console.log(userID);
         // const userRef = ref(db, "users/" + userID);
         const newPostFlashcards =  push(ref(db,'flashcards'));
         const newPostFlashcardsToUser =  push(ref(db,'users/'+userID+'/flashcards'));
@@ -42,7 +41,7 @@ export class Database {
                 ask: card.ask,
                 answer: card.answer,
                 owner: card.owner,
-                set: card.set
+                //set: card.set
             };
             await set(newPostFlashcards, PostCard);
             await set(newPostFlashcardsToUser, PostCard);
@@ -52,23 +51,32 @@ export class Database {
         }
     }
     async addUser(name) {
-        const usersRef = ref(db, "users");
+        const usersRef = ref(db, "users/" + name);
         const newPostUsers = push(usersRef);
         try {
-            await set(newPostUsers, name);
+            await set(usersRef, name);
         }
         catch (e) {
             console.log(e);
         }
     }
-   removeCard(userID, cardID){
-
+   async removeCard(userID, cardID){
+        const userRef = ref(db, "users/" + userID + "/flashcards/" + cardID);
+        const flashcardRef = ref(db, "flashcards/" + cardID);
+        try {
+            await set(userRef, null);
+            await set(flashcardRef, null);
+        }
+        catch (e) {
+            console.log(e);
+        }
    }
+
     async getCards(userID){
         const userRef = ref(db, "users/" + userID + "/flashcards");
         await this.getEntries(userRef);
     }
-    async getEntries(location) {
+     async getEntries(location) {
         const entriesRef = ref(db, location);
         try {
             let response = await get(entriesRef);
@@ -77,6 +85,7 @@ export class Database {
             }
             else {
                 console.log("No data available");
+                return null;
             }
         } catch (e) {
             console.log(e);
@@ -85,6 +94,10 @@ export class Database {
     async attachListener(location, callback){
         //return snapshot
         onValue(ref(db, location), (snapshot) => {
+            if (!snapshot.exists()) {
+                callback([]);
+                return;
+            }
             const transformedData = Object.entries(snapshot.val()).map(([key, value]) => {
                 return {
                     key,

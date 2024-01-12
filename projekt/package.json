@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel ./source/index.html --public-url /projekt/dist"
+    "dev": "parcel ./source/index.html source/karty/karty.html --public-url /projekt/dist"
   },
   "keywords": [],
   "author": "",
