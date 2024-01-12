@@ -1,2 +1,14 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/_mixins";
 @import "variables";
 @import "~bootstrap/scss/bootstrap";
+
+
+h1 {
+  text-align: center;
+  color: $white;
+}
+.main-content {
+  display: none;
+}

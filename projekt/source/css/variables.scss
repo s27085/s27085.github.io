@@ -1,0 +1,6 @@
+$custom-colors: (
+    "background": $red-400,
+    "text": #ffffff
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
