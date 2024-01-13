@@ -625,6 +625,8 @@ $("#add_flashcard").submit((e)=>{
         let answer = $("#answer").val();
         let question = $("#question").val();
         if (answer === "" || question === "") return false;
+        $("#answer").val("");
+        $("#question").val("");
         let flashcardToSend = new (0, _firebaseJs.Flashcard)(question, answer, $("#selectUser").val());
         flashcardsDatabase.addCards($("#selectUser").val(), flashcardToSend);
     } catch (e) {
@@ -655,7 +657,7 @@ $(document).ready(function() {
     $("#changeSiteBtn").on("click", function() {
         var usernameValue = $("#selectUser").val();
         console.log("Button clicked");
-        window.location.href = "./karty.html?u=" + usernameValue;
+        window.location.href = "karty.html?u=" + usernameValue;
     });
 });
 

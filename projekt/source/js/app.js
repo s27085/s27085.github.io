@@ -58,6 +58,8 @@ $("#add_flashcard").submit ((e) => {
         if (answer === "" || question === "") {
             return false;
         }
+        $("#answer").val("");
+        $("#question").val("");
         let flashcardToSend = new Flashcard(question, answer, $("#selectUser").val());
         flashcardsDatabase.addCards($("#selectUser").val(), flashcardToSend);
     }
