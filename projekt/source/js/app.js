@@ -90,6 +90,6 @@ $(document).ready(function () {
     $("#changeSiteBtn").on("click", function() {
         var usernameValue = $("#selectUser").val();
         console.log("Button clicked");
-        window.location.href = "./karty.html?u=" + usernameValue;
+        window.location.href = "karty.html?u=" + usernameValue;
     });
 });
