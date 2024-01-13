@@ -614,7 +614,7 @@ function updateFlashcards(flashcards) {
     fl.empty();
     if (flashcards.length === 0) //show info that there are no flashcards
     fl.append("<tr><td colspan='3' class='text-center'>Brak fiszek</td></tr>");
-    for (const [key, value] of Object.entries(flashcards))$("#flashcards").append("<tr class='flashcard border border-2 border-text' data-key=" + value.key + ">" + "<td class='col-5 px-3'>" + value.ask + "</td>" + "<td class='col-5 px-3'>" + value.answer + "</td>" + "<td class='col-2 p-0'>" + "<button class='btn remove-btn btn-danger w-100 bg-text border border-0 rounded-0 text-background font-weight-bold' value='" + key + "'>Usu\u0144</button>" + "</td>" + "</tr>");
+    for (const [key, value] of Object.entries(flashcards))$("#flashcards").append("<tr class='overflow-hidden flashcard border border-2 border-text' data-key=" + value.key + ">" + "<td class='col-5 px-3'>" + value.ask + "</td>" + "<td class='col-5 px-3'>" + value.answer + "</td>" + "<td class='col-2 p-0 bg-background'>" + "<button class='btn remove-btn btn-danger w-100 bg-text border border-0 rounded-0 text-background font-weight-bold' value='" + key + "'>Usu\u0144</button>" + "</td>" + "</tr>");
 }
 $(document).on("click", ".remove-btn", function(e) {
     let key = $(e.target).parent().parent().data("key");
