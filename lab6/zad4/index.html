@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Hamburger</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <meta name="author" content="Konrad Fijałkowski">
+    <script defer src="script.js"></script>
+</head>
+<body>
+<div id="grid-container">
+    <button id="hamburger-icon">
+        Kliknij mnie
+        <div id="hamburger-list">
+            <a class="firstH" href="#">link</a>
+            <a class="firstH" href="#">link</a>
+            <a class="firstH" href="#">link</a>
+        </div>
+    </button>
+    <div id="links">
+        <ul>
+            <div id="dropdown">
+                <li id="drop-button"><a class="first-layer" href="#">link</a>
+                    <ul id="dropdown-content">
+                        <li><a class="second-layer" href="#">link 2</a></li>
+                        <li><a class="second-layer" href="#">link 2</a></li>
+                        <li><a class="second-layer" href="#">link 2</a></li>
+                    </ul>
+                </li>
+            </div>
+            <li><a class="first-layer" href="#">link 2</a></li>
+            <li><a class="first-layer" href="#">link 3</a></li>
+        </ul>
+    </div>
+    <div id="siteContent">
+        <div id="leftPanel">
+            <h1>title 1</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aut dolore, iure quae reprehenderit tempora. Accusantium assumenda distinctio dolor dolorum explicabo illo illum</p>
+            <img id="zdjęcie" src="/images/kotek.jpg" alt="cotek">
+
+            <h2>subtitle</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim exercitationem quo sed sint vero voluptatum. Dolore pariatur reprehenderit rerum vel.</p>
+
+            <h2>subtitle</h2>
+            <p>Lorem ipsum.</p>
+        </div>
+        <div id="rightPanel">
+            <h1>title 2</h1>
+            <p>Lorem ipsum.</p>
+
+            <form method="post" action="lab.html">
+                <div class="form-item">
+                    <label for="imie">Imie i nazwisko</label><br>
+                    <input type="text" id="imie" value="sdsd"><br>
+                    <label for="pole">Opis</label><br>
+                    <textarea id="pole" cols="30" rows="10" placeholder="wpisz coś o sobie"></textarea><br>
+                </div>
+                <div class="form-item">
+                    <label for="wiek">Wiek</label><br>
+                    <select id="wiek">
+                        <option disabled selected >wybierz...</option>
+                        <option value="">1 - 18</option>
+                        <option value="">19 - 65</option>
+                        <option value="">65+</option>
+                    </select><br>
+                    <div>
+                        <label for="opcja1">Opcja</label><br>
+                        <input checked type="radio" id="opcja1"> a<br>
+                        <input type="radio" id="opcja2"> b<br>
+                        <input type="radio" id="opcja3"> c<br>
+                    </div>
+                    <input type="submit" value="wyślij">
+                </div>
+            </form>
+            <table>
+                <tr>
+                    <th>col1</th>
+                    <th>col2</th>
+                    <th>col3</th>
+                </tr>
+                <tr><td>11</td><td>12</td><td>13</td></tr>
+                <tr><td>11</td><td>12</td><td>13</td></tr>
+                <tr><td>11</td><td>12</td><td>13</td></tr>
+                <tr><td>11</td><td>12</td><td>13</td></tr>
+                <tr><td>11</td><td>12</td><td>13</td></tr>
+                <tr><td>11</td><td>12</td><td>13</td></tr>
+            </table>
+        </div>
+    </div>
+    <div id="footer">
+        <p>sample text 1</p>
+        <p>sample text 2</p>
+        <p>sample text 3</p>
+    </div>
+</div>
+</body>
+</html>
