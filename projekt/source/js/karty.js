@@ -1,5 +1,4 @@
 import {Database, Flashcard} from './firebase.js';
-import {on} from "process";
 const flashcardsDatabase = new Database();
 let flashcardArray = [];
 let currentFlashcard = 0;

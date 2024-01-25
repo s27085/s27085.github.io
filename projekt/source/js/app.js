@@ -42,7 +42,7 @@ function updateFlashcards(flashcards) {
             "<tr class='overflow-hidden flashcard border border-2 border-text' data-key="+ value.key + ">" +
                 "<td class='col-5 px-3'>" + value.ask + "</td>" +
                 "<td class='col-5 px-3'>" + value.answer + "</td>" +
-                "<td class='col-2 p-0 bg-background'>" + "<button class='btn remove-btn btn-danger w-100 bg-text border border-0 rounded-0 text-background font-weight-bold' value='" + key + "'>Usuń</button>" + "</td>" +
+                "<td class='col-2 p-0 bg-background'>" + "<button class=' remove-btn w-25 h-100 border border-0 rounded-0 text-background font-weight-bold' value='" + key + "'>Usuń</button>" + "</td>" +
             "</tr>"
         );
     }
@@ -53,13 +53,13 @@ $(document).on("click", ".remove-btn", function(e) {
 });
 $("#add_flashcard").submit ((e) => {
     try {
-        let answer = $("#answer").val();
-        let question = $("#question").val();
+        let answer = $("#answer")
+        let question = $("#question")
         if (answer === "" || question === "") {
             return false;
         }
-        $("#answer").val("")
-        $("#question").val("");
+        answer.val("")
+        question.val("");
         let flashcardToSend = new Flashcard(question, answer, $("#selectUser").val());
         flashcardsDatabase.addCards($("#selectUser").val(), flashcardToSend);
     }
@@ -72,12 +72,13 @@ $("#selectUser").change(() => {
     loadFlashcards();
 });
 $(document).ready(function () {
-    // flashcardsDatabase.addUser('user1');
-    // flashcardsDatabase.addUser('user2');
-    loadUsers().then(() => {
-        $(".main-content").toggleClass("d-none");
-        loadFlashcards();
-    })
+    console.log("ready");
+    flashcardsDatabase.addUser('user1');
+    flashcardsDatabase.addUser('user2');
+    // loadUsers().then(() => {
+    //     $(".main-content").toggleClass("d-none");
+    //     loadFlashcards();
+    // })
     $("button").on({
         mouseenter: function() {
             $(this).toggleClass("text-text text-background");

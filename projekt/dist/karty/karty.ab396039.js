@@ -580,7 +580,6 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"d3V6B":[function(require,module,exports) {
 var _firebaseJs = require("./firebase.js");
-var _process = require("process");
 const flashcardsDatabase = new (0, _firebaseJs.Database)();
 let flashcardArray = [];
 let currentFlashcard = 0;
@@ -637,6 +636,6 @@ loadFlashcards().then(()=>{
     $(".container").toggleClass("d-none");
 });
 
-},{"./firebase.js":"iBQ7U","process":"d5jf4"}]},["5KbbF","d3V6B"], "d3V6B", "parcelRequire170a")
+},{"./firebase.js":"iBQ7U"}]},["5KbbF","d3V6B"], "d3V6B", "parcelRequire170a")
 
 //# sourceMappingURL=karty.ab396039.js.map

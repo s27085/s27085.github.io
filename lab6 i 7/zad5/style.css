@@ -8,9 +8,8 @@
     text-align: left;
 }
 
-.active, .accordion:hover {
+.accordion:hover {
     background-color: green;
-    transform: scale(1.05);
 }
 
 .bar{

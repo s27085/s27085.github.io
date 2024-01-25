@@ -674,6 +674,7 @@ class Database {
         const newPostUsers = (0, _database.push)(usersRef);
         try {
             await (0, _database.set)(usersRef, name);
+            console.log("User" + name + " added");
         } catch (e) {
             console.log(e);
         }

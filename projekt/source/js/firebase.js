@@ -55,6 +55,7 @@ export class Database {
         const newPostUsers = push(usersRef);
         try {
             await set(usersRef, name);
+            console.log("User" + name + " added");
         }
         catch (e) {
             console.log(e);

@@ -154,7 +154,7 @@ module.bundle.HMR_BUNDLE_ID = "1e4f29b2aa1fd97d";
 import type {
   HMRAsset,
   HMRMessage,
-} from '@parcel/reporter-dev-server/src/HMRServer.app.js';
+} from '@parcel/reporter-dev-server/src/HMRServer.js';
 interface ParcelRequire {
   (string): mixed;
   cache: {|[string]: ParcelModule|};
@@ -244,9 +244,9 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== "undefined") {
     // eval may also be disabled via CSP, so do a quick check.
     var supportsSourceURL = false;
     try {
-        (0, eval)('throw new Error("test"); //# sourceURL=test.app.js');
+        (0, eval)('throw new Error("test"); //# sourceURL=test.js');
     } catch (err) {
-        supportsSourceURL = err.stack.includes("test.app.js");
+        supportsSourceURL = err.stack.includes("test.js");
     }
     // $FlowFixMe
     ws.onmessage = async function(event /*: {data: string, ...} */ ) {
@@ -260,7 +260,7 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== "undefined") {
             let assets = data.assets.filter((asset)=>asset.envHash === HMR_ENV_HASH);
             // Handle HMR Update
             let handled = assets.every((asset)=>{
-                return asset.type === "css" || asset.type === "app.js" && hmrAcceptCheck(module.bundle.root, asset.id, asset.depsByBundle);
+                return asset.type === "css" || asset.type === "js" && hmrAcceptCheck(module.bundle.root, asset.id, asset.depsByBundle);
             });
             if (handled) {
                 console.clear();
@@ -392,7 +392,7 @@ function reloadCSS() {
     }, 50);
 }
 function hmrDownload(asset) {
-    if (asset.type === "app.js") {
+    if (asset.type === "js") {
         if (typeof document !== "undefined") {
             let script = document.createElement("script");
             script.src = asset.url + "?t=" + Date.now();
@@ -458,7 +458,7 @@ function hmrApply(bundle /*: ParcelRequire */ , asset /*:  HMRAsset */ ) {
     var modules = bundle.modules;
     if (!modules) return;
     if (asset.type === "css") reloadCSS();
-    else if (asset.type === "app.js") {
+    else if (asset.type === "js") {
         let deps = asset.depsByBundle[bundle.HMR_BUNDLE_ID];
         if (deps) {
             if (modules[asset.id]) {
@@ -582,4 +582,4 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}]},["l8Rv5","4DOkj"], "4DOkj", "parcelRequire170a")
 
-//# sourceMappingURL=source.aa1fd97d.app.js.map
+//# sourceMappingURL=source.aa1fd97d.js.map
