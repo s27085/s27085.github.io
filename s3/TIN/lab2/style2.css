@@ -1,0 +1,97 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-image: url("../images/dune.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#grid-container{
+    height: 100vh;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+#siteContent{
+    background-color: #78AAEF;
+    padding: 10px;
+    overflow-y: scroll;
+}
+#zdjęcie{
+    max-width: 100%;
+    max-height: 30vh;
+    aspect-ratio: auto;
+}
+#wiek{
+    width: 120px;
+}
+h1{
+    font-size: 50px;
+    color: #263396;
+    margin: 10% 0;
+}
+#footer{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    background-color: #010080;
+    color: white;
+    text-align: center;
+}
+#links{
+    background-color:rgba(101,153,228, 0.5);
+}
+#links a{
+    box-sizing: border-box;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+#links ul{
+    padding-inline-start: 0;
+    margin: 0;
+}
+.first-layer{
+    background-color: #6599E4;
+    font-weight: bold;
+}
+.second-layer{
+    background-color: #4377DD;
+}
+.first-layer, .second-layer{
+    width: 100%;
+    padding: 5px;
+}
+.second-layer{
+    padding-left: 20px;
+}
+#links li{
+    display: inline-block;
+    opacity: 100%;
+    font-size: 20px;
+    width: 100%;
+}
+#links a:hover{
+    opacity: 80%;
+}
+form{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 5%;
+    column-gap: 10%;
+}
+.form-item{
+    width: 50%;
+}
+table{
+    width: 100%;
+    height: 35%;
+}
+th{
+    background-color: #3376aa;
+    color: white;
+}
+td{
+    text-align: center;
+}
+tr:nth-of-type(even){
+    background-color: #bbd5f6;
+}

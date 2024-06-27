@@ -1,0 +1,42 @@
+:root {
+    --filling-cyan: #20cfd8;
+    --border-cyan: #20a8ef;
+}
+#calculator {
+    width: 50vw;
+    margin: 10vh auto;
+    height: 200px;
+    max-width: 700px;
+}
+#product {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    background-color: var(--filling-cyan);
+    border: 5px solid var(--border-cyan);
+    height: 50%;
+    padding: 10px 20px 10px 0;
+    font-size: 3rem;
+    color: white;
+    text-align: right;
+}
+#inputs {
+    height: 40%;
+    background-color: rgb(244, 239, 239);
+    color: #727171;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+input, select, #submit {
+    width: 5rem;
+    padding: 1rem;
+    font: 1em sans-serif;
+
+}
+#submit{
+    margin-top: 15px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kalkulator</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <meta name="author" content="Konrad Fijałkowski">
+    <script
+            src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+            integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+            crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <div id="calculator">
+        <div id="product">0</div>
+        <form id="inputs">
+            <div class="form-input">
+                <label for="first-factor">Pierwszy liczba</label><br>
+                <input id="first-factor" type="text">
+            </div>
+            <div class="form-input">
+                    <label for="second-factor">Druga liczba</label><br>
+                    <input id="second-factor" type="text">
+            </div>
+            <div>
+                <label for="operation">Operacja</label><br>
+                <select name="operation" id="operation">
+                    <option value="dodaj">+</option>
+                    <option value="odejmij">-</option>
+                    <option value="mnoz">*</option>
+                    <option value="dziel">/</option>
+                </select>
+            </div>
+            <input id="submit" type="submit" value="Oblicz">
+        </form>
+    </div>
+</body>
+</html>
