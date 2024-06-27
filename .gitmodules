@@ -1,0 +1,6 @@
+[submodule "s3/TIN"]
+	path = s3/TIN
+	url = https://github.com/s27085/s27085.github.io
+[submodule "s4/wprg"]
+	path = s4/wprg
+	url = https://github.com/s27085/S4-WPRG
