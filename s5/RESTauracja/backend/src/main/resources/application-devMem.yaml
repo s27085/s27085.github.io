@@ -1,0 +1,22 @@
+spring:
+  liquibase:
+    change-log: classpath:db/changelog/master.yaml
+  datasource:
+    hikari:
+      schema: RESTAURANT
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:file:./data/restaurant.db;DB_CLOSE_DELAY=-1;INIT=CREATE SCHEMA IF NOT EXISTS RESTAURANT;MODE=PostgreSQL
+    username: user
+    password: pass
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+  sql:
+    init:
+      mode: always
+      platform: h2
+      continue-on-error: true
+logging:
+  level:
+    root: WARN
